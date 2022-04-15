@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mapnote';
+  public data: Object = {id: 'first', name: 'Trofim'};
+
+  public onClick() {
+    this.data = {
+      ...this.data,
+      id: 'second'
+    };
+  }
 }
