@@ -2,17 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TranslateValuePipe } from './translate-value.pipe';
+import { TimeService } from './time.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TranslateValuePipe,
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: TimeService,
+      useClass: TimeService,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
