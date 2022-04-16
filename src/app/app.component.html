@@ -1,3 +1,34 @@
-<p>Задание по Angular</p>
-<p>Время:</p>
-<p class="time-element"></p>
+<form [formGroup]="productForm">
+  <div class="field">
+    <label for="id">id</label>
+    <input id="id" type="text" formControlName="id" />
+    <button type="button" (click)="onClickGenerateButton()">
+      Сгенерировать
+    </button>
+  </div>
+
+  <div class="field">
+    <label for="name">Имя</label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div class="field">
+    <label for="price">Цена</label>
+    <input id="price" type="number" formControlName="price" />
+  </div>
+
+  <div class="field">
+    <label for="categories">Категория</label>
+    <select multiple formControlName="categories">
+      <option value="shoes">Обувь</option>
+      <option value="clothes">Одежда</option>
+      <option value="medicines">Лекарства</option>
+      <option value="food">Еда</option>
+      <option value="electronic">Электроника</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <button type="button" (click)="onSubmit()">Отправить</button>
+  </div>
+</form>
