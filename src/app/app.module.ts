@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TimeService } from './time.service';
+import { DOCUMENT, SET_INTERVAL } from './tokens';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,14 @@ import { TimeService } from './time.service';
     {
       provide: TimeService,
       useClass: TimeService,
+    },
+    {
+      provide: DOCUMENT,
+      useValue: document,
+    },
+    {
+      provide: SET_INTERVAL,
+      useValue: setInterval,
     }
   ],
   bootstrap: [AppComponent]

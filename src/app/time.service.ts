@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT, SET_INTERVAL } from './tokens';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable()
 export class TimeService {
-  constructor() { }
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(SET_INTERVAL) private setInterval: Function,
+  ) { }
 
   public start() {
-    const timeElement: HTMLElement = document.querySelector('.time-element');
+    const timeElement: HTMLElement = this.document.querySelector('.time-element');
     let counter: number = 0;
 
-    setInterval(() => {
+    this.setInterval(() => {
       timeElement.innerText = `${counter++}`;
     }, 1000);
   }
